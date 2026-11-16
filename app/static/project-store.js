@@ -81,5 +81,12 @@
   byId('dbRestore').onclick=handle(restoreRevision);
   byId('dbNew').onclick=()=>{currentId=null;currentRevision=null;byId('dbProjects').value='';byId('name').value='Nuova fustella';segments=[];selected=-1;history=[];fit();revisions().catch(()=>{});status('Nuovo progetto non ancora salvato');};
   byId('dbProjects').onchange=()=>status('Premi Apri per caricare il progetto selezionato');
-  handle(refresh)();
+  handle(refresh)().then(async () => {
+    const requested = new URLSearchParams(location.search).get('project');
+    if (requested) {
+      byId('dbProjects').value = requested;
+      if (byId('dbProjects').value === requested) await handle(openProject)();
+      else status('Progetto non trovato nell’archivio');
+    }
+  });
 })();

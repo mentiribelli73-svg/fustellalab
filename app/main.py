@@ -1,3 +1,4 @@
+from app.pdf_export import router as carton_export_router
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -87,4 +88,5 @@ def delete(id:str):
 
 @app.get('/')
 def index():return FileResponse(BASE/'static'/'index.html')
+app.include_router(carton_export_router)
 app.mount('/',StaticFiles(directory=BASE/'static'),name='static')
