@@ -36,3 +36,10 @@ Il ramo stabile è `main`. Per nuove funzionalità usa `feature/...`, per correz
 Prima di ogni merge esegui i test e verifica che nessun dato riservato sia tracciato.
 Per collegare GitHub: crea un repository privato vuoto `fustellalab`, quindi esegui
 `git remote add origin <URL-del-tuo-repository>` e `git push -u origin main`.
+
+## Import Studio con archivio database
+
+Aprire `http://127.0.0.1:8765/importa.html` dopo l'avvio del server.
+La sezione **Archivio progetti** consente di creare, salvare, aprire e recuperare revisioni di fustelle SVG/DXF importate e convertite in segmenti editabili. Le geometrie sono memorizzate nel documento JSON del progetto in SQLite. L'operazione **Carica revisione** porta una versione storica nell'editor; **Salva nel database** genera una nuova revisione.
+
+**Limiti attuali:** importazione parziale dei formati SVG/DXF, nessuna parametrizzazione automatica dei pannelli, nessuna verifica industriale. Non utilizzare le esportazioni senza verifica tecnica. Il database SQLite e' locale e non e' predisposto per l'esposizione pubblica o l'uso multiutente senza autenticazione.
