@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+# Local databases and user data
+data/
+*.sqlite
+*.sqlite3
+*.db
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Editor/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# Generated outputs
+exports/
+output/
+*.log
